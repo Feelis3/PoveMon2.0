@@ -22,17 +22,17 @@ offset_right = 683.0
 offset_bottom = 449.0
 theme_override_constants/separation = 15
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Jugar" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Jugar"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Opciones" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Opciones"
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="Salir" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Salir"
