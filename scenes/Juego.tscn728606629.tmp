@@ -58,7 +58,7 @@ texture = ExtResource("2_41r3f")
 position = Vector2(3.5, 0.5)
 shape = SubResource("RectangleShape2D_limju")
 
-[node name="Animacion" type="AnimationPlayer" parent="Jugador"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Jugador"]
 libraries = {
 &"": SubResource("AnimationLibrary_f1ijh")
 }
