@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxtb07n6lalsq"]
+
+[ext_resource type="Texture2D" uid="uid://is8tmtll78uy" path="res://sprites/arbol1.png" id="1_vlsla"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11txm"]
+radius = 39.0512
+
+[node name="Arbol" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(9, 9)
+texture = ExtResource("1_vlsla")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 108)
+shape = SubResource("CircleShape2D_11txm")
