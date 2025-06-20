@@ -1,0 +1,151 @@
+[gd_scene load_steps=11 format=3 uid="uid://bya6ir3j043q3"]
+
+[ext_resource type="Script" uid="uid://dvm81xgau1b0i" path="res://scripts/jugador.gd" id="1_p6t76"]
+[ext_resource type="Texture2D" uid="uid://blw3lx35oef84" path="res://sprites/Hana Caraka - Base Character [sample]/idle.png" id="2_41r3f"]
+[ext_resource type="PackedScene" uid="uid://cxtb07n6lalsq" path="res://elementos/arbol.tscn" id="3_41r3f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_limju"]
+size = Vector2(330, 430)
+
+[sub_resource type="Animation" id="Animation_limju"]
+resource_name = "idle_front"
+length = 0.8935
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667, 0.8),
+"transitions": PackedFloat32Array(1.1487, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(2, 1), Vector2i(1, 1), Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kgnyf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_41r3f"]
+resource_name = "idle_right"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_xc6uk"]
+resource_name = "idle_back"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(2, 2), Vector2i(1, 2), Vector2i(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_f1ijh"]
+resource_name = "ide_left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.7, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xc6uk"]
+_data = {
+&"RESET": SubResource("Animation_kgnyf"),
+&"idle_back": SubResource("Animation_xc6uk"),
+&"idle_front": SubResource("Animation_limju"),
+&"idle_left": SubResource("Animation_f1ijh"),
+&"idle_right": SubResource("Animation_41r3f")
+}
+
+[node name="Juego" type="Node2D"]
+position = Vector2(230, 160)
+scale = Vector2(0.1, 0.1)
+
+[node name="Jugador" type="CharacterBody2D" parent="."]
+position = Vector2(-280, 1040)
+scale = Vector2(1, 1)
+script = ExtResource("1_p6t76")
+
+[node name="Sprite" type="Sprite2D" parent="Jugador"]
+position = Vector2(-1110, 540)
+scale = Vector2(30, 30)
+texture = ExtResource("2_41r3f")
+hframes = 4
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
+position = Vector2(-1120, 550)
+shape = SubResource("RectangleShape2D_limju")
+
+[node name="AnimacionJugador" type="AnimationPlayer" parent="Jugador"]
+libraries = {
+&"": SubResource("AnimationLibrary_xc6uk")
+}
+
+[node name="Arbol" parent="." instance=ExtResource("3_41r3f")]
+position = Vector2(2020, -440)
+scale = Vector2(9, 9)
+
+[node name="Arbol2" parent="." instance=ExtResource("3_41r3f")]
+position = Vector2(590, -430)
+scale = Vector2(9, 9)
+
+[node name="Arbol3" parent="." instance=ExtResource("3_41r3f")]
+position = Vector2(1280, -440)
+scale = Vector2(9, 9)
+
+[node name="Arbol4" parent="." instance=ExtResource("3_41r3f")]
+position = Vector2(2750, -450)
+scale = Vector2(9, 9)
