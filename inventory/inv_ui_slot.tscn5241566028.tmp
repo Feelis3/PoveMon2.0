@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://fxdjpaecqfs6" path="res://inventory/inv_ui_slot.gd" id="1_fcwim"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fcwim"]
-font_size = 128
 
 [node name="inv_UI_slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -24,19 +23,15 @@ layout_mode = 0
 offset_right = 16.0
 offset_bottom = 16.0
 
+[node name="item_name" type="Label" parent="CenterContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_fcwim")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 171
+
 [node name="Panel" type="Panel" parent="CenterContainer"]
 layout_mode = 2
 
 [node name="item_display" type="Sprite2D" parent="CenterContainer/Panel"]
-offset = Vector2(16, 16)
-
-[node name="item_cant" type="Label" parent="CenterContainer/Panel"]
-offset_left = -6.0
-offset_top = 3.0
-offset_right = 589.0
-offset_bottom = 178.0
-scale = Vector2(0.0218465, 0.0265033)
-label_settings = SubResource("LabelSettings_fcwim")
-horizontal_alignment = 2
-vertical_alignment = 1
-justification_flags = 171
