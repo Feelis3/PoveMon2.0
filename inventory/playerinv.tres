@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=4 format=3 uid="uid://c8707qh835w58"]
+
+[ext_resource type="Script" uid="uid://c3hjjfkjwytx5" path="res://inventory/inventory_item.gd" id="1_bm6gn"]
+[ext_resource type="Resource" uid="uid://dv47l3w3exknp" path="res://inventory/items/boloncho.tres" id="2_f70d8"]
+[ext_resource type="Script" uid="uid://bgpmagxp0slf" path="res://scripts/Inventory.gd" id="3_11wfs"]
+
+[resource]
+script = ExtResource("3_11wfs")
+items = Array[ExtResource("1_bm6gn")]([ExtResource("2_f70d8"), null, null, null, null, null, null, null])
+metadata/_custom_type_script = "uid://bgpmagxp0slf"

@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var sprite_idle = $SpriteIdle
 @onready var sprite_walk = $SpriteWalk
 
+@export var inv: Inventory
+
 var last_direction = "down"
 
 func _ready():

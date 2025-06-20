@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dv47l3w3exknp"]
+
+[ext_resource type="Script" uid="uid://c3hjjfkjwytx5" path="res://inventory/inventory_item.gd" id="1_1k7t2"]
+[ext_resource type="Texture2D" uid="uid://1lty8yo70fbs" path="res://sprites/bola.png" id="2_8mw2v"]
+
+[resource]
+script = ExtResource("1_1k7t2")
+name = "Boloncho"
+texture = ExtResource("2_8mw2v")
+metadata/_custom_type_script = "uid://c3hjjfkjwytx5"

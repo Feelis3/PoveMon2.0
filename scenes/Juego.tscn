@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bya6ir3j043q3"]
+[gd_scene load_steps=17 format=3 uid="uid://bya6ir3j043q3"]
 
 [ext_resource type="PackedScene" uid="uid://cssnuseobuswi" path="res://elementos/Map1.tscn" id="1_limju"]
 [ext_resource type="Script" uid="uid://dvm81xgau1b0i" path="res://scripts/jugador.gd" id="1_p6t76"]
 [ext_resource type="Texture2D" uid="uid://blw3lx35oef84" path="res://sprites/Hana Caraka - Base Character [sample]/idle.png" id="2_41r3f"]
+[ext_resource type="Resource" uid="uid://c8707qh835w58" path="res://inventory/playerinv.tres" id="3_kgnyf"]
 [ext_resource type="Texture2D" uid="uid://b0qcoj52vqtst" path="res://sprites/Hana Caraka - Base Character [sample]/walk.png" id="3_limju"]
+[ext_resource type="PackedScene" uid="uid://d2slig2arpamd" path="res://inventory/inv_ui.tscn" id="4_xc6uk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_limju"]
 size = Vector2(330, 430)
@@ -190,6 +192,7 @@ position = Vector2(230, 160)
 scale = Vector2(0.1, 0.1)
 
 [node name="TileMap" parent="." instance=ExtResource("1_limju")]
+position = Vector2(-110, 2430)
 scale = Vector2(25, 25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap"]
@@ -197,6 +200,14 @@ scale = Vector2(25, 25)
 [node name="Jugador" type="CharacterBody2D" parent="."]
 position = Vector2(-280, 1040)
 script = ExtResource("1_p6t76")
+inv = ExtResource("3_kgnyf")
+
+[node name="Inv_UI" parent="Jugador" instance=ExtResource("4_xc6uk")]
+offset_left = -2130.0
+offset_top = -740.0
+offset_right = -2130.0
+offset_bottom = -740.0
+scale = Vector2(25, 24.525)
 
 [node name="SpriteIdle" type="Sprite2D" parent="Jugador"]
 visible = false
@@ -207,7 +218,7 @@ hframes = 4
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
-position = Vector2(-1120, 550)
+position = Vector2(-1080, 580)
 shape = SubResource("RectangleShape2D_limju")
 
 [node name="AnimacionJugador" type="AnimationPlayer" parent="Jugador"]
@@ -224,3 +235,4 @@ vframes = 3
 frame = 8
 
 [node name="Camera2D" type="Camera2D" parent="Jugador"]
+position = Vector2(-1010, 550)
