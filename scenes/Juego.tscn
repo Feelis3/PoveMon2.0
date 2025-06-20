@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bya6ir3j043q3"]
+[gd_scene load_steps=8 format=3 uid="uid://bya6ir3j043q3"]
 
 [ext_resource type="Script" uid="uid://dvm81xgau1b0i" path="res://scripts/jugador.gd" id="1_p6t76"]
 [ext_resource type="Texture2D" uid="uid://cve06t2yn7lqs" path="res://sprites/personaje.png" id="2_41r3f"]
+[ext_resource type="PackedScene" uid="uid://cxtb07n6lalsq" path="res://elementos/arbol.tscn" id="3_41r3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_limju"]
 size = Vector2(405, 761)
@@ -44,21 +45,39 @@ _data = {
 }
 
 [node name="Juego" type="Node2D"]
-position = Vector2(195, 163)
+position = Vector2(230, 160)
 scale = Vector2(0.1, 0.1)
 
 [node name="Jugador" type="CharacterBody2D" parent="."]
+scale = Vector2(1, 1)
 script = ExtResource("1_p6t76")
 
 [node name="Sprite" type="Sprite2D" parent="Jugador"]
+position = Vector2(-1110, 540)
 rotation = -0.0872665
 texture = ExtResource("2_41r3f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
-position = Vector2(3.5, 0.5)
+position = Vector2(-1120, 550)
 shape = SubResource("RectangleShape2D_limju")
 
-[node name="Animacion" type="AnimationPlayer" parent="Jugador"]
+[node name="Animaciones" type="AnimationPlayer" parent="Jugador"]
 libraries = {
 &"": SubResource("AnimationLibrary_f1ijh")
 }
+
+[node name="Arbol" parent="." instance=ExtResource("3_41r3f")]
+position = Vector2(2020, -440)
+scale = Vector2(9, 9)
+
+[node name="Arbol2" parent="." instance=ExtResource("3_41r3f")]
+position = Vector2(590, -430)
+scale = Vector2(9, 9)
+
+[node name="Arbol3" parent="." instance=ExtResource("3_41r3f")]
+position = Vector2(1280, -440)
+scale = Vector2(9, 9)
+
+[node name="Arbol4" parent="." instance=ExtResource("3_41r3f")]
+position = Vector2(2750, -450)
+scale = Vector2(9, 9)
