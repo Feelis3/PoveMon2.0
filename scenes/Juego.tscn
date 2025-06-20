@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://bya6ir3j043q3"]
 
+[ext_resource type="PackedScene" uid="uid://cssnuseobuswi" path="res://elementos/Map1.tscn" id="1_limju"]
 [ext_resource type="Script" uid="uid://dvm81xgau1b0i" path="res://scripts/jugador.gd" id="1_p6t76"]
 [ext_resource type="Texture2D" uid="uid://blw3lx35oef84" path="res://sprites/Hana Caraka - Base Character [sample]/idle.png" id="2_41r3f"]
-[ext_resource type="PackedScene" uid="uid://cxtb07n6lalsq" path="res://elementos/arbol.tscn" id="3_41r3f"]
 [ext_resource type="Texture2D" uid="uid://b0qcoj52vqtst" path="res://sprites/Hana Caraka - Base Character [sample]/walk.png" id="3_limju"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_limju"]
@@ -124,6 +124,22 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 2, 1, 0]
 }
 
+[sub_resource type="Animation" id="Animation_6knl6"]
+resource_name = "walk_front"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteWalk:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_h3xeb"]
 resource_name = "walk_front"
 length = 0.55
@@ -139,22 +155,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_6knl6"]
-resource_name = "walk_front"
-length = 0.55
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteWalk:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_2ipn8"]
@@ -189,6 +189,11 @@ _data = {
 position = Vector2(230, 160)
 scale = Vector2(0.1, 0.1)
 
+[node name="TileMap" parent="." instance=ExtResource("1_limju")]
+scale = Vector2(25, 25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap"]
+
 [node name="Jugador" type="CharacterBody2D" parent="."]
 position = Vector2(-280, 1040)
 script = ExtResource("1_p6t76")
@@ -203,7 +208,6 @@ vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Jugador"]
 position = Vector2(-1120, 550)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_limju")
 
 [node name="AnimacionJugador" type="AnimationPlayer" parent="Jugador"]
@@ -219,18 +223,4 @@ hframes = 8
 vframes = 3
 frame = 8
 
-[node name="Arbol" parent="." instance=ExtResource("3_41r3f")]
-position = Vector2(2020, -440)
-scale = Vector2(9, 9)
-
-[node name="Arbol2" parent="." instance=ExtResource("3_41r3f")]
-position = Vector2(590, -430)
-scale = Vector2(9, 9)
-
-[node name="Arbol3" parent="." instance=ExtResource("3_41r3f")]
-position = Vector2(1280, -440)
-scale = Vector2(9, 9)
-
-[node name="Arbol4" parent="." instance=ExtResource("3_41r3f")]
-position = Vector2(2750, -450)
-scale = Vector2(9, 9)
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
