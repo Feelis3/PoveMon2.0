@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc28lvms5se7f"]
+
+[ext_resource type="Script" uid="uid://8c16vq0wchjf" path="res://dialogos/dialogoPlayer.gd" id="1_0apot"]
+[ext_resource type="Texture2D" uid="uid://jhcluucqq0yj" path="res://sprites/inventory-slot.png" id="1_matbw"]
+
+[node name="Dialogo" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0apot")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -33.0
+offset_top = -34.0
+offset_right = 132.0
+offset_bottom = 32.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_matbw")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -1.0
+offset_right = 60.0
+offset_bottom = 33.0
+text = "Juan:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 23.0
+offset_right = 190.0
+offset_bottom = 82.0
+scale = Vector2(0.8, 0.8)
+text = "Dame pipas GUARRA!!!"

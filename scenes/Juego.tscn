@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bya6ir3j043q3"]
+[gd_scene load_steps=20 format=3 uid="uid://bya6ir3j043q3"]
 
 [ext_resource type="PackedScene" uid="uid://cssnuseobuswi" path="res://elementos/Map1.tscn" id="1_limju"]
 [ext_resource type="Script" uid="uid://dvm81xgau1b0i" path="res://scripts/jugador.gd" id="1_p6t76"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://c8707qh835w58" path="res://inventory/playerinv.tres" id="3_kgnyf"]
 [ext_resource type="Texture2D" uid="uid://b0qcoj52vqtst" path="res://sprites/Hana Caraka - Base Character [sample]/walk.png" id="3_limju"]
 [ext_resource type="PackedScene" uid="uid://d2slig2arpamd" path="res://inventory/inv_ui.tscn" id="4_xc6uk"]
+[ext_resource type="PackedScene" uid="uid://s7wltp5r5sym" path="res://elementos/npc.tscn" id="8_h3xeb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3xeb"]
 
@@ -210,6 +211,7 @@ shape = SubResource("RectangleShape2D_h3xeb")
 [node name="CanvasLayer" type="CanvasLayer" parent="TileMap/Area2D"]
 
 [node name="Panel" type="Panel" parent="TileMap/Area2D/CanvasLayer"]
+visible = false
 offset_left = 722.0
 offset_top = 409.0
 offset_right = 875.0
@@ -263,3 +265,6 @@ frame = 8
 
 [node name="Camera2D" type="Camera2D" parent="Jugador"]
 position = Vector2(-1010, 550)
+
+[node name="NPC" parent="." instance=ExtResource("8_h3xeb")]
+position = Vector2(1900, 1050)
